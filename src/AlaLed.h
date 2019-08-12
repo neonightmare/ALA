@@ -77,6 +77,8 @@ private:
     void sparkle();
     void sparkle2();
     void strobo();
+    void left();
+    void right();
 
     void pixelShiftRight();
     void pixelShiftLeft();
