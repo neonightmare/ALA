@@ -64,6 +64,8 @@ private:
     void sparkle2();
     void strobo();
     void cycleColors();
+    void left();
+    void right();
 
     void pixelShiftRight();
     void pixelShiftLeft();
