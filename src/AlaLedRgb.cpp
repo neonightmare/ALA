@@ -184,7 +184,7 @@ bool AlaLedRgb::runAnimation()
 {
     if(animation == ALA_STOPSEQ)
         return true;
-    
+
     // skip the refresh if not enough time has passed since last update
     unsigned long cTime = millis();
     if (cTime < lastRefreshTime + refreshMillis)
@@ -268,6 +268,9 @@ void AlaLedRgb::setAnimationFunc(int animation)
         case ALA_SPARKLE2:              animFunc = &AlaLedRgb::sparkle2;              break;
         case ALA_STROBO:                animFunc = &AlaLedRgb::strobo;                break;
         case ALA_CYCLECOLORS:           animFunc = &AlaLedRgb::cycleColors;           break;
+        case ALA_LEFT:                  animFunc = &AlaLedRgb::left;                  break; // new
+        case ALA_RIGHT:                 animFunc = &AlaLedRgb::right;                 break; // new
+
 
         case ALA_PIXELSHIFTRIGHT:       animFunc = &AlaLedRgb::pixelShiftRight;       break;
         case ALA_PIXELSHIFTLEFT:        animFunc = &AlaLedRgb::pixelShiftLeft;        break;
@@ -317,6 +320,22 @@ void AlaLedRgb::off()
     }
 }
 
+void AlaLedRgb::left() // neue Funktion mit links, Ansteuerung von links
+{  for(int i=0; i<numLeds/3; i++)
+  {
+      leds[i] = palette.colors[0];
+  }
+}
+
+void AlaLedRgb::right() // neue Funktion mit rechts,  Ansteuerung von links
+{
+  int numLeds2=numLeds/3;
+  int numLeds3=numLeds2*2;
+  for(int i=(numLeds3); i<numLeds; i++)
+  {
+      leds[i] = palette.colors[0];
+  }
+}
 
 void AlaLedRgb::blink()
 {
@@ -805,4 +824,3 @@ void AlaLedRgb::bubbles()
     }
 
 }
-
