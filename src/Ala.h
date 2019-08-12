@@ -41,6 +41,8 @@ along with The Arduino ALA library.  If not, see
 #define ALA_SPARKLE 105
 #define ALA_SPARKLE2 106
 #define ALA_STROBO 107
+#define ALA_LEFT 110
+#define ALA_RIGHT 111
 
 #define ALA_CYCLECOLORS 151
 
